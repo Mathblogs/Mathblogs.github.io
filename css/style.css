@@ -1,0 +1,36 @@
+    @font-face {
+        font-family: 'Font';
+        src: url('/Font/ProtestRiot-Regular.ttf');
+    }
+    h1{
+    font-family: 'Font';
+    color: white;
+    font-size: 60;
+    font-weight: 300;}
+    h2{
+        font-family: 'Font';
+        color: white;
+        font-size: 40px;
+        font-weight: 300;}
+    h3{
+        font-family: 'Font';
+        color: white;
+        font-size: 20px;
+        font-weight: 300;}
+    body{
+        background-color: #300030;}
+        
+        .urlbtns{
+            width: 400px;
+            height: 80px;
+            box-sizing: border-box;
+            padding: 5px 0px;
+            margin: 0px 5px;
+            border: none;
+            outline: none;
+            border-radius: 10px;
+            text-align: center;
+            background-color: #600060;
+            font-size: 40px;
+            color: white;
+            font-family: 'Font';}
