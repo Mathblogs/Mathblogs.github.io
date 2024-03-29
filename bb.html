@@ -1,226 +1,217 @@
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1129101714911578"
+   crossorigin="anonymous"></script>
+  <title>UBG Ultra Github: ByeBlocker</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+    }
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Proxy</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="/favicon.ico" />
-    <style>
-        @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
-    
-        body {
-          background-color: #1c1c1c;
-          color: #fff;
-          font-family: "Montserrat", sans-serif;
-          margin: 0;
-          padding: 0;
-          overflow: hidden;
-        }
-    
-        h2 {
-          text-align: center;
-          color: #63de00;
-        }
-    
-        input {
-          background: rgba(255, 255, 255, 0.1);
-          border: none;
-          outline: none;
-          color: #63de00;
-          font-family: "Montserrat", sans-serif;
-          font-size: inherit;
-        }
-    
-        ::placeholder {
-          font-style: italic;
-          color: #aaa;
-          opacity: 1;
-        }
-    
-        .console-container {
-          width: 85%;
-          margin: 0 auto 10vh;
-        }
-    
-        .consolebody {
-          background-color: #1c1c1c;
-          color: #63de00;
-          border-radius: 15px;
-          padding: 20px;
-          box-sizing: border-box;
-        }
-    
-        .button-wrapper {
-          padding-top: 10px;
-          text-align: center;
-        }
-    
-        .console-button {
-          font-family: "Montserrat", sans-serif;
-          font-weight: bold;
-          text-transform: uppercase;
-          padding: 0.4em 1em;
-          border: none;
-          outline: none;
-          color: #000;
-          background: #fff;
-          cursor: pointer;
-          border-radius: 10px;
-          font-size: 1rem;
-        }
-    
-        .console-button:before {
-          content: "";
-          background: linear-gradient(
-            45deg,
-            #ff0000,
-            #ff7300,
-            #fffb00,
-            #48ff00,
-            #00ffd5,
-            #002bff,
-            #7a00ff,
-            #ff00c8,
-            #ff0000
-          );
-          position: absolute;
-          top: -2px;
-          left: -2px;
-          background-size: 400%;
-          z-index: -1;
-          filter: blur(5px);
-          width: calc(100% + 4px);
-          height: calc(100% + 4px);
-          animation: glowingbn5 20s linear infinite;
-          opacity: 0;
-          transition: opacity 0.3s ease-in-out;
-          border-radius: 10px;
-        }
-    
-        @keyframes glowingbn5 {
-          0% {
-            background-position: 0 0;
-          }
-          50% {
-            background-position: 400% 0;
-          }
-          100% {
-            background-position: 0 0;
-          }
-        }
-    
-        .console-button:active {
-          color: black;
-        }
-    
-        .console-button:hover:before {
-          opacity: 1;
-        }
-    
-        .console-button:after {
-          z-index: -1;
-          content: "";
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          background: #000;
-          left: 0;
-          top: 0;
-          border-radius: 10px;
-        }
-      </style>
+    #background {
+      position: absolute;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      background: radial-gradient(circle, rgb(0, 0, 0), rgb(1, 44, 42));
+    }
+
+    .star {
+      position: absolute;
+      background: rgb(57, 255, 215);
+      border-radius: 50%;
+      transform: scale(0);
+      animation: sparkle 2s infinite, drift linear infinite;
+    }
+
+    @keyframes sparkle {
+      0%, 100% {
+        opacity: 0;
+        transform: scale(0);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes drift {
+      0%, 100% {
+        transform: translate(0, 0);
+      }
+      50% {
+        transform: translate(50px, -50px);
+      }
+    }
+  </style>
   </head>
-  <body>
-    <h2>Tab Cloaker</h2>
-    <div class="console-container">
-      <div class="console">
-        <div class="consolebody">
-          <p>Enter a new tab title or a image URL below. Whatever you set will be used all over the site.</p>
-          <p class="console-input">> <input id="userinput" type="url" pattern="https://.*" placeholder="Enter a title or image URL" autocomplete="on" autofocus /></p>
-          <p>Output: <span id="console-output"></span></p>
-        </div>
-      </div>
-      <div class="button-wrapper">
-        <button onclick="changeTabTitle();" class="console-button">Set Title</button>
-        <button onclick="changeTabIcon();" class="console-button">Set Icon</button>
-        <button onclick="resetTabSettings();" class="console-button">Uncloak</button>
-      </div>
-      <div class="examples">
-        <h4>Presets:</h4>
-        <p><b>Google Search: </b><button class="console-button" onclick="applyUrl('https://storage.googleapis.com/operating-anagram-8280/favicon-32x32.png', 'Math pratice - Google Search');">Apply</button></p>
-        <p><b>Google Classroom: </b><button class="console-button" onclick="applyUrl('https://ssl.gstatic.com/classroom/favicon.png', 'Classes');">Apply</button></p>
-        <p><b>Google Docs: </b><button class="console-button" onclick="applyUrl('https://ssl.gstatic.com/docs/documents/images/kix-favicon7.ico', 'Class notes - Google Docs');">Apply</button></p>
-        <p><b>Google Drive: </b><button class="console-button" onclick="applyUrl('https://ssl.gstatic.com/images/branding/product/2x/hh_drive_36dp.png', 'My Drive - Google Drive');">Apply</button></p>
-        <p><b>Canvas: </b><button class="console-button" onclick="applyUrl('https://du11hjcvx0uqb.cloudfront.net/dist/images/favicon-e10d657a73.ico' , 'Dashboard');">Apply</button></p>
-        <p><b>Schoology: </b><button class="console-button" onclick="applyUrl('https://asset-cdn.schoology.com/sites/all/themes/schoology_theme/favicon.ico', 'Home | Schoology');">Apply</button></p>
-        <p><b>my NG connect: </b><button class="console-button" onclick="applyUrl('https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://www.myngconnect.com/login/chooseMainUI.spr&size=16', 'my NG connect');">Apply</button></p>
-      </div>
+    <div id="background">
+      <!-- Generating stars -->
+      <script>
+        const numStars = 300;
+        const background = document.getElementById('background');
+
+        for (let i = 0; i < numStars; i++) {
+          const star = document.createElement('div');
+          star.classList.add('star');
+          star.style.width = `${Math.random() * 3}px`;
+          star.style.height = star.style.width;
+          star.style.left = `${Math.random() * 100}vw`;
+          star.style.top = `${Math.random() * 100}vh`;
+
+          background.appendChild(star);
+        }
+      </script>
     </div>
   </body>
-<script>
-const image_preview = document.getElementById("image-preview");
-const console_output = document.getElementById("console-output");
+      <style>
+        body {
+          margin: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 100vh;
+        }
+        input {
+          margin-bottom: 10px;
+        }
+      </style>
+    <style>
+      .image-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
 
-//Change tabTitle
-const changeTabTitle = () => {
-  const newtitle = document.getElementById("userinput");
-  if (newtitle.value == ""){ //check if the input is blank when they submit
-      window.localStorage.removeItem("title");
-      window.document.title = "3kh0.github.io"
-      document.getElementById("console-output").style.color = "red"; //error = red
-      console_output.innerText = "No title entered. Default applied" //return output successful
-  } else {
-      window.localStorage.setItem("title", newtitle.value);
-      window.document.title = newtitle.value; //Set window's title to userinput
-      document.getElementById("console-output").style.color = "green"; //reset output's color to green
-      console_output.innerText = "Title change successful" //return output successful
+      .image {
+        width: 250px;
+        height: 250px;
+        border: 2px solid #daf3f1;
+        margin: 40px;
+        padding: 10px;
+        box-sizing: border-box;
+        transition: all 0.3s ease;
+      }
+
+      .image:hover {
+        transform: scale(1.1);
+        border-color: #9900ff;
+      }
+    </style>
+  </head>
+  <script>
+      javascript:(function() {
+var menu = document.createElement('div');
+var menuContent = document.createElement('div');
+var closeButton = document.createElement('span');
+var button = document.createElement('button');
+
+menu.style.cssText = `
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+  background-color: rgba(0, 255, 255, 0.2); 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  width: 200px;
+`;
+
+menuContent.style.padding = '10px';
+
+closeButton.style.cssText = `
+  float: right;
+  cursor: pointer;
+  color: #333;
+`;
+closeButton.innerHTML = '&times;';
+closeButton.onclick = function() {
+  menu.remove();
+};
+
+button.innerHTML = 'Launch ByeBlocker';
+button.style.cssText = `
+  font-family: Arial;
+  font-size: 16px;
+  color: #fff;
+  background-color: #333;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 10px;
+  cursor: pointer;
+`;
+button.onclick = function() {
+  var link = prompt("Enter your URL with https:// at the front");
+  var proxy = 'https://api.codetabs.com/v1/proxy?quest=';
+  fetch(proxy + link)
+    .then((response) => response.text())
+    .then((text) => document.write(text));
+  var all = document.getElementsByTagName("*");
+  for (var i = 0, max = all.length; i < max; i++) {
+    if (all[i].src) {
+      all[i].src = new URL(all[i].src, link).href;
+      all[i].src = proxy + all[i].src;
+    }
   }
-  newtitle.value = ""; //clear input
-};
-
-//Change the tabIcon
-const changeTabIcon = () => {
-  const newfavicon = document.getElementById("userinput");
-  if (validURL(newfavicon.value)){
-      document.querySelector("link[rel*='icon']").href = newfavicon.value;
-      window.localStorage.setItem("icon", newfavicon.value);
-      document.getElementById("console-output").style.color = "green";
-      console_output.innerText = "Icon change successful"
-  } else {
-      document.getElementById("console-output").style.color = "red";
-      console_output.innerText = "Icon change failed. Make sure you are using a valid URL"
+  window.onbeforeunload = function(e) {
+    e.preventDefault();
+    alert(e.toString());
+  };
+  function locationHashChanged(e) {
+    e.preventDefault();
+    alert(e);
+    window.location = new URL(e.oldURL, e.newURL).href;
   }
-  newfavicon.value = ""; //clear input
+  window.onhashchange = locationHashChanged;
 };
 
-//URL Validation Regex
-const validURL = (str) => {
-  var expression = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/gi;
-  var regex = new RegExp(expression);
-  return !!regex.test(str);
-}
+menuContent.appendChild(button);
+menuContent.appendChild(closeButton);
+menu.appendChild(menuContent);
+document.body.appendChild(menu);
 
-//Clears Tab Icon and Title
-const resetTabSettings = () => {
-  let items = ["icon", "title"];
-  items.forEach(item =>
-  window.localStorage.removeItem(item));
-  document.getElementById("console-output").style.color = "black";
-  console_output.innerText = "Resetting..."
-  window.location.reload();
-};
+var isDragging = false;
+var mouseOffset = { x: 0, y: 0 };
 
-// Handle Apply buttons
+menuContent.addEventListener('mousedown', function(e) {
+  isDragging = true;
+  mouseOffset.x = e.pageX - menu.offsetLeft;
+  mouseOffset.y = e.pageY - menu.offsetTop;
+});
 
-function applyUrl(url, title){
-document.getElementById("userinput").value = url;
-changeTabIcon();
-document.getElementById("userinput").value = title;
-changeTabTitle();
-document.getElementById("console-output").style.color = "green";
-console_output.innerText = "Preset applied successfully!"
-}
-</script>
-</html>
+document.addEventListener('mousemove', function(e) {
+  if (isDragging) {
+    menu.style.left = (e.pageX - mouseOffset.x) + 'px';
+    menu.style.top = (e.pageY - mouseOffset.y) + 'px';
+  }
+});
+
+document.addEventListener('mouseup', function() {
+  isDragging = false;
+});
+})();
+  </script>
+<head>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #000; 
+  }
+  .bottom-left {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.2); 
+    padding: 10px;
+  }
+</style>
+</head>
+<body>
+</body>
